@@ -1,3 +1,23 @@
+# Large files
+data/
+models/sign_language_cnn.keras
+models/sign_language_cnn.h5
+models/model_weights.weights.h5
+processed_data.zip
+
+# Environments
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+Thumbs.db
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
