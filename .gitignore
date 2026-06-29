@@ -4,6 +4,7 @@ models/sign_language_cnn.keras
 models/sign_language_cnn.h5
 models/model_weights.weights.h5
 processed_data.zip
+Demo Video.mp4
 
 # Environments
 .venv/

@@ -2,6 +2,8 @@
 
 A computer vision project that recognizes American Sign Language (ASL) hand gestures from a live webcam and converts them into text in real-time. Built using Python, OpenCV, MediaPipe, and TensorFlow.
 
+Demo video: [Watch on Google Drive](https://drive.google.com/file/d/10f8BDimV8IEG8KDllJJ4iEas2MVoNRVB/view?usp=drive_link)
+
 ---
 
 ## What this project does

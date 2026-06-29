@@ -28,6 +28,7 @@ STABILITY_FRAMES = 15    # frames with same prediction → confirm (was 20)
 VOTE_WINDOW      = 8    # rolling window for majority vote
 CONFIDENCE_DEF   = 0.75 # default minimum confidence (was 0.75)
 COOLDOWN_FRAMES  = 10   # frames between confirmations (was 25)
+SAME_LETTER_COOLDOWN = 8   # 0=never repeat, 10=repeat freely, 1-9=in between
 PADDING_SIZES    = [0.20]  # single crop — keeps FPS high
 FONT             = cv2.FONT_HERSHEY_SIMPLEX
 
@@ -313,7 +314,9 @@ def run(camera_id=0, confidence_threshold=CONFIDENCE_DEF, use_tts=True):
             and voted != "del"
             and confirm_cooldown == 0
         ):
-            if voted != last_confirmed:
+            same_letter_threshold = int((1 - SAME_LETTER_COOLDOWN / 10) * COOLDOWN_FRAMES * 3)
+            frames_since_last = COOLDOWN_FRAMES - confirm_cooldown
+            if voted != last_confirmed or SAME_LETTER_COOLDOWN == 10 or frames_since_last >= same_letter_threshold:
                 current_word    += voted
                 last_confirmed   = voted
                 confirm_cooldown = COOLDOWN_FRAMES
